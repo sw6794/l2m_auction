@@ -28,7 +28,7 @@ async def test(ctx, *args):
 @bot.command()
 async def end(ctx, msgID: int):
     msg = await ctx.channel.fetch_message(msgID)
-    await ctx.send(msg.author.name)
+    await ctx.send(msg.reactions)
 
 
 
