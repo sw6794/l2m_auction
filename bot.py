@@ -29,7 +29,6 @@ async def auction(ctx, *args):
 @bot.command()
 async def end(ctx, link: str):
     link = link.split('/')
-    print(link[5])
     server_id = int(link[4])
     channel_id = int(link[5])
     msg_id = int(link[6])
@@ -46,7 +45,10 @@ async def end(ctx, link: str):
                 userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
-        winner=random.choice(userids)
+
+        print(userids)
+        winner = random.choice(userids)
+
         embed=msg.embeds[0]
         embed.set_footer(text="")
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
