@@ -53,7 +53,7 @@ async def end(ctx, link: str):
         embed.add_field(name="当選者(당선자)", value=f"<@{winner}>", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
-        msg.edit("마감되었습니다.")
+        msg.edit(content="마감되었습니다.")
 
 
     else:
