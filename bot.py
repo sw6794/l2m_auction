@@ -47,7 +47,7 @@ async def end(ctx, link: str):
         entry=len(users)
 
         print(userids)
-        winner = random.choice(userids)
+        winner = random.choice(list(userids))
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
