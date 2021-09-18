@@ -14,9 +14,15 @@ async def on_ready():
 async def test(ctx, *args):
     num = len(args)
     if num == 2:
-        return await ctx.send('**', args[1], '**\n`所持者(소지자) : ', args[0], '`')
+		embed = discord.Embed(
+				title = args[1],
+				description= boss_information[0],
+				color=0x0000ff
+				)
+        await ctx.send( embed=embed, tts=False)
+
     elif num == 3:
-        return await ctx.send(num)
+        await ctx.send(num)
     else:
         return
 
