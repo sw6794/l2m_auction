@@ -38,6 +38,7 @@ async def end(ctx, msgID: int):
     embed.add_field(name="参加者(참여자)", value=f"{', '.join(user.name for user in users)}", inline=False)
     embed.add_field(name="当選者(당선자)", value="랜덤", inline=False)
     await ctx.send(embed=msg.embeds[0])
+    await ctx.sned(len(users))
 
 
 
