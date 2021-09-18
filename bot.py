@@ -16,6 +16,7 @@ async def on_ready():
 async def auction(ctx, *args):
     num = len(args)
     if num == 2:
+        await ctx.message.delete()
         embed=discord.Embed()
         embed.add_field(name="ITEM", value=args[1], inline=True)
         embed.add_field(name="所持者(소지자)", value=args[0], inline=True)
@@ -23,7 +24,6 @@ async def auction(ctx, *args):
 
         msg = await ctx.send(embed = embed)
         await msg.add_reaction("✅")
-        await ctx.message.delete ()
     else:
         return
 
