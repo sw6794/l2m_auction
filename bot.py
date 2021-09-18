@@ -45,11 +45,6 @@ async def end(ctx, link: str):
                 users.add(user)
                 userids.add(user.id)
     if len(users) != 0:
-        embed=msg.embeds[0]
-        embed.set_footer(text="")
-        embed.add_field(name="END", value="", inline=False)
-        msg.edit(embed=msg.embeds[0])
-
         entry=len(users)
         winner=userids.pop()
         embed=msg.embeds[0]
@@ -57,6 +52,8 @@ async def end(ctx, link: str):
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
         embed.add_field(name="当選者(당선자)", value=f"<@{winner}>", inline=False)
         await ctx.send(embed=msg.embeds[0])
+
+        msg.edit("마감되었습니다.")
 
 
     else:
