@@ -46,8 +46,8 @@ async def end(ctx, link: str):
     if len(users) != 0:
         entry=len(users)
 
-        print(userids)
-        winner = random.choice(list(userids))
+        userlist = list(userids)
+        winner = random.choice(userlist)
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
@@ -55,8 +55,8 @@ async def end(ctx, link: str):
         embed.add_field(name="当選者(당선자)", value=f"<@{winner}>", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
-        embed2=discord.Embed(title="FINISHED")
-        await msg.edit(embed=embed2)
+        #embed2=discord.Embed(title="FINISHED")
+        #await msg.edit(embed=embed2)
 
 
     else:
