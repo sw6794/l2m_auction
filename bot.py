@@ -35,15 +35,15 @@ async def end(ctx, msgID: int):
         async for user in reaction.users():
             if bot.user.id != user.id:
                 users.add(user)
-                usernames.add(user.name)
+                userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
+        winner=userids.pop()
         embed=msg.embeds[0]
         embed.set_footer(text="")
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
-        embed.add_field(name="当選者(당선자)", value="랜덤", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"<@{winner}>", inline=False)
         await ctx.send(embed=msg.embeds[0])
-        await ctx.send(usernames.pop())
     else:
         embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
         await ctx.send(embed=embed)
