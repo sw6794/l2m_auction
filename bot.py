@@ -29,7 +29,7 @@ async def test(ctx, *args):
 async def end(ctx, msgID: int):
     msg = await ctx.channel.fetch_message(msgID)
     users = set()
-    for reaction in message.reactions:
+    for reaction in msg.reactions:
         async for user in reaction.users():
             users.add(user)
     await ctx.send(f"users: {', '.join(user.name for user in users)}")
