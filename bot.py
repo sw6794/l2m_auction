@@ -5,9 +5,9 @@ import os
 bot = commands.Bot(command_prefix = '$')
 @bot.event
 async def on_ready():
-  await client.change_presence(status=discord.Status.online)
-  await client.change_presence(activity=discord.Game(name="@help"))
-  print("봇 이름:",client.user.name,"봇 아이디:",client.user.id,"봇 버전:",discord.__version__)
+  await bot.change_presence(status=discord.Status.online)
+  await bot.change_presence(activity=discord.Game(name="@help"))
+  print("봇 이름:",bot.user.name,"봇 아이디:",bot.user.id,"봇 버전:",discord.__version__)
 
 @bot.command()
 async def test(ctx, *args):
