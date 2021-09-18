@@ -14,14 +14,12 @@ async def on_ready():
 async def test(ctx, *args):
     num = len(args)
     if num == 2:
-
-	embed = discord.Embed(
-			title = args[1],
-			description= "11",
-			color=0x0000ff
-			)
-
-            await ctx.send( embed=embed)
+        embed = discord.Embed(
+            title = args[1],
+            description= "11",
+            color=0x0000ff
+        )
+        await ctx.send( embed=embed)
 
     elif num == 3:
         await ctx.send(num)
