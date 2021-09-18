@@ -23,6 +23,7 @@ async def auction(ctx, *args):
 
         msg = await ctx.send(embed = embed)
         await msg.add_reaction("✅")
+        await ctx.message.delete ()
     else:
         return
 
