@@ -27,7 +27,7 @@ async def test(ctx, *args):
 
 @bot.command()
 async def end(ctx, msgID: int):
-    for channel in bot.get_all_channels():
+    for channel in guild.channels:
         try:
             msg = await channel.fetch_message(msgID)
         except NotFound:
