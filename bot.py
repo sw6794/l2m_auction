@@ -19,7 +19,7 @@ async def test(ctx, *args):
 				description= "11",
 				color=0x0000ff
 				)
-        await ctx.send( embed=embed, tts=False)
+        await ctx.send( embed=embed)
 
     elif num == 3:
         await ctx.send(num)
