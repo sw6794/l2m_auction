@@ -36,7 +36,7 @@ async def end(ctx, msgID: int):
     embed=msg.embeds[0]
     embed.set_footer(text="")
     embed.add_field(name="所持者(소지자)", value=f"users: {', '.join(user.name for user in users)}", inline=False)
-    embed.add_field(name="抽選結果(추첨결과)", value="랜덤"", inline=False)
+    embed.add_field(name="抽選結果(추첨결과)", value="랜덤", inline=False)
     await ctx.send(embed=msg.embeds[0])
 
 
