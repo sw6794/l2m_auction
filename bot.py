@@ -2,10 +2,10 @@ import discord
 from discord.ext import commands
 import os
 
-client = commands.Bot(command_prefix = '/')
+client = commands.Bot(command_prefix = '$')
 
-@client.command(name='auction')
-async def auction(ctx, *arg):
+@bot.command()
+async def test(ctx, *args):
     await ctx.send('{} arguments: {}'.format(len(args), ', '.join(args)))
 
 
