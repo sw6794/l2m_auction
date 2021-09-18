@@ -29,7 +29,7 @@ async def test(ctx, *args):
 async def end(ctx, msgID: int):
     for channel in bot.get_all_channels():
         try:
-            msg = await channel.get_message(msgID)
+            msg = await channel.fetch_message(msgID)
         except NotFound:
             continue
     await ctx.send(msg.content)
