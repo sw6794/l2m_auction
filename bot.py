@@ -31,7 +31,9 @@ async def end(ctx, msgID: int):
     users = set()
     for reaction in msg.reactions:
         async for user in reaction.users():
-            users.add(user)
+			if self.bot.user.id != user.id:
+				users.add(user)
+
     await ctx.send(f"users: {', '.join(user.name for user in users)}")
 
 
