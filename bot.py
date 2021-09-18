@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord import NotFound
 import os
 import random
 
