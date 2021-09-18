@@ -47,9 +47,3 @@ async def end(ctx, msgID: int):
 
 
 bot.run(os.environ['token'])
-
-
-{
-<User id=279079125010874379 name='신화/깡/공지/27' discriminator='7314' bot=False>,
-<Member id=888628507507318885 name='Auction BOT' discriminator='5454' bot=True nick=None guild=<Guild id=888471275759091732 name='TEST' shard_id=None chunked=False member_count=2>>
-}
