@@ -21,12 +21,11 @@ async def test(ctx, *args):
 
         msg = await ctx.send(embed = embed)
         await msg.add_reaction("✅")
-
-    elif num == 3:
-        await ctx.send(num)
     else:
         return
 
-
+@bot.command()
+async def end(ctx, msgID: int):
+    msg = await ctx.fetch_message(msgID)
 
 bot.run(os.environ['token'])
