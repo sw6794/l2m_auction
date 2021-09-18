@@ -33,12 +33,14 @@ async def end(ctx, msgID: int):
         async for user in reaction.users():
             if bot.user.id != user.id:
                 users.add(user)
-    embed=msg.embeds[0]
-    embed.set_footer(text="")
-    embed.add_field(name="参加者(참여자)", value=f"{', '.join(user.name for user in users)}", inline=False)
-    embed.add_field(name="当選者(당선자)", value="랜덤", inline=False)
-    await ctx.send(embed=msg.embeds[0])
-    await ctx.send(len(users))
+    if len(users) != 0:
+        embed=msg.embeds[0]
+        embed.set_footer(text="")
+        embed.add_field(name="参加者(참여자) ({})".formet(len(users)), value=f"{', '.join(user.name for user in users)}", inline=False)
+        embed.add_field(name="当選者(당선자)", value="랜덤", inline=False)
+        await ctx.send(embed=msg.embeds[0])
+    else:
+        await ctx.send("参加者がいません。\n참여자가 없습니다.")
 
 
 
