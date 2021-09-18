@@ -26,7 +26,7 @@ async def test(ctx, *args):
 
 @bot.command()
 async def end(ctx, msgID: int):
-     message await ctx.fetch_message(msgID)
+     message = await ctx.fetch_message(msgID)
      await ctx.send(message.content)
 
 
