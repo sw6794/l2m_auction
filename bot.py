@@ -4,7 +4,7 @@ from discord import NotFound
 import os
 import random
 
-bot = commands.Bot(command_prefix = '$')
+bot = commands.Bot(command_prefix = '!')
 
 @bot.event
 async def on_ready():
@@ -13,7 +13,7 @@ async def on_ready():
 
 
 @bot.command()
-async def test(ctx, *args):
+async def auction(ctx, *args):
     num = len(args)
     if num == 2:
         embed=discord.Embed()
