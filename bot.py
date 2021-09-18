@@ -11,6 +11,7 @@ async def on_ready():
   print(f'Logged in as {bot.user} (ID: {bot.user.id})')
   print('------')
 
+
 @bot.command()
 async def test(ctx, *args):
     num = len(args)
@@ -29,9 +30,12 @@ async def test(ctx, *args):
 async def end(ctx, msgID: int):
     msg = await ctx.channel.fetch_message(msgID)
     users = set()
+    usernames = set()
     for reaction in msg.reactions:
         async for user in reaction.users():
-            users.add(user)
+            if bot.user.id != user.id:
+                users.add(user)
+                usernames.add(user.name)
     if len(users) != 0:
         entry=len(users)
         embed=msg.embeds[0]
@@ -39,7 +43,7 @@ async def end(ctx, msgID: int):
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
         embed.add_field(name="当選者(당선자)", value="랜덤", inline=False)
         await ctx.send(embed=msg.embeds[0])
-        await ctx.send(users[0].user.name)
+        await ctx.send(usernames[0])
     else:
         embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
         await ctx.send(embed=embed)
