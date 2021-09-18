@@ -15,7 +15,9 @@ async def on_ready():
 async def test(ctx, *args):
     num = len(args)
     if num == 2:
-        await ctx.send(num)
+        await ctx.send('**', args[1], '**\n`所持者(소지자) : ', args[0], '`')
+        
+        return
     elif num == 3:
         await ctx.send(num)
     else:
