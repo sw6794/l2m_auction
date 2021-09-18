@@ -30,7 +30,7 @@ async def test(ctx, *args):
 async def end(ctx, msgID: int):
     msg = await ctx.channel.fetch_message(msgID)
     users = set()
-    usernames = set()
+    userids = set()
     for reaction in msg.reactions:
         async for user in reaction.users():
             if bot.user.id != user.id:
