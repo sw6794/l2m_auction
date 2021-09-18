@@ -27,8 +27,16 @@ async def auction(ctx, *args):
         return
 
 @bot.command()
-async def end(ctx, msgID: int):
-    msg = await ctx.channel.fetch_message(msgID)
+async def end(ctx, link: str):
+    link = link.split('/')
+    server_id = int(link[4])
+    channel_id = int(link[6])
+    msg_id = int(link[5])
+
+    server = client.get_guild(server_id)
+    channel = server.get_channel(channel_id)
+    msg = await channel.fetch_message(msg_id)
+
     users = set()
     userids = set()
     for reaction in msg.reactions:
