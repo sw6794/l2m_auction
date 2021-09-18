@@ -34,9 +34,10 @@ async def end(ctx, msgID: int):
             if bot.user.id != user.id:
                 users.add(user)
     if len(users) != 0:
+        entry=len(users)
         embed=msg.embeds[0]
         embed.set_footer(text="")
-        embed.add_field(name="参加者(참여자) ({e})".formet(e=len(users)), value=f"{', '.join(user.name for user in users)}", inline=False)
+        embed.add_field(name="参加者(참여자) ({entry})".formet(entry=entry), value=f"{', '.join(user.name for user in users)}", inline=False)
         embed.add_field(name="当選者(당선자)", value="랜덤", inline=False)
         await ctx.send(embed=msg.embeds[0])
     else:
