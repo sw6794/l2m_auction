@@ -20,7 +20,7 @@ async def test(ctx, *args):
         embed.set_footer(text="参加者は以下に絵文字をクリックしてください。\n참여를 원하시면 이모티콘으로 반응해주세요.")
 
         msg = await ctx.send(embed = embed)
-        await msg.add_reaction('✅')
+        await msg.add_reaction("✅")
 
     elif num == 3:
         await ctx.send(num)
