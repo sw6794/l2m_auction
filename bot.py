@@ -27,6 +27,6 @@ async def test(ctx, *args):
 @bot.command()
 async def end(ctx, msgID: int):
     msg = await ctx.fetch_message(msgID)
-    await ctx.send(msg.content)
+    await ctx.send("내용\n", msg.content)
 
 bot.run(os.environ['token'])
