@@ -37,7 +37,6 @@ async def end(ctx, link: str):
     server = bot.get_guild(server_id)
     channel = server.get_channel(channel_id)
     msg = await channel.fetch_message(msg_id)
-:kissing_heart:
     users = set()
     userids = set()
     for reaction in msg.reactions:
