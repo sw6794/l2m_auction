@@ -16,7 +16,7 @@ async def test(ctx, *args):
     if num == 2:
 		embed = discord.Embed(
 				title = args[1],
-				description= boss_information[0],
+				description= "11",
 				color=0x0000ff
 				)
         await ctx.send( embed=embed, tts=False)
