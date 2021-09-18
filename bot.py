@@ -7,7 +7,8 @@ bot = commands.Bot(command_prefix = '$')
 
 @bot.event
 async def on_ready():
-  print("봇 이름:",client.user.name,"봇 아이디:",client.user.id,"봇 버전:",discord.__version__)
+  print(f'Logged in as {bot.user} (ID: {bot.user.id})')
+  print('------')
 
 @bot.command()
 async def test(ctx, *args):
