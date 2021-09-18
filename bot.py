@@ -41,7 +41,8 @@ async def end(ctx, msgID: int):
         embed.add_field(name="当選者(당선자)", value="랜덤", inline=False)
         await ctx.send(embed=msg.embeds[0])
     else:
-        await ctx.send("参加者がいません。\n참여자가 없습니다.")
+        embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
+        await ctx.send(embed=embed)
 
 
 
