@@ -29,10 +29,9 @@ async def auction(ctx, *args):
 @bot.command()
 async def end(ctx, link: str):
     link = link.split('/')
-    print(link[5])
-    server_id = int(link[4])
-    channel_id = int(link[6])
-    msg_id = int(link[5])
+    server_id = link[4]
+    channel_id = link[6]
+    msg_id = link[5]
 
     server = bot.get_guild(server_id)
     channel = server.get_channel(channel_id)
