@@ -46,7 +46,7 @@ async def end(ctx, link: str):
                 userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
-        winner=userids.pop()
+        winner=random.choice(userids)
         embed=msg.embeds[0]
         embed.set_footer(text="")
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
