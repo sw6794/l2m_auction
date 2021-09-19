@@ -42,7 +42,7 @@ async def end(ctx, link: str):
         async for user in reaction.users():
             if bot.user.id != user.id:
                 users.add(user)
-                userids.add(member.displayName)
+                userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
 
