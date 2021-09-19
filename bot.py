@@ -15,14 +15,42 @@ async def on_ready():
 @bot.command()
 async def auction(ctx, *args):
     num = len(args)
-    if num == 2:
+    if num > 2:
         embed=discord.Embed()
-        embed.add_field(name="ITEM", value=args[1], inline=True)
-        embed.add_field(name="所持者(소지자)", value=args[0], inline=True)
+        embed.add_field(name="BOSS", value=args[0], inline=True)
+        embed.add_field(name="所持者(소지자)", value=args[1], inline=True)
+        if num == 3:
+            reaction_list = [':one:']
+            embed.add_field(name=":one:ITEM", value=args[1], inline=True)
+        elif numm == 4:
+            reaction_list = [':one:', ':two:']
+            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
+        elif numm == 5:
+            reaction_list = [':one:', ':two:', ':three:']
+            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":three: ITEM", value=args[1], inline=True)
+        elif numm == 6:
+            reaction_list = [':one:', ':two:', ':three:', ':four:']
+            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":three: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":four: ITEM", value=args[1], inline=True)
+        elif numm == 7:
+            reaction_list = [':one:', ':two:', ':three:', ':four:', ':five:']
+            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":three: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":four: ITEM", value=args[1], inline=True)
+            embed.add_field(name=":five: ITEM", value=args[1], inline=True)
+        else:
+            return
         embed.set_footer(text="参加者は以下に絵文字をクリックしてください。\n참여를 원하시면 이모티콘으로 반응해주세요.")
 
         msg = await ctx.send(embed = embed)
-        await msg.add_reaction("✅")
+        for r in reaction_list:
+            await msg.add_reaction(r)
     else:
         return
 
