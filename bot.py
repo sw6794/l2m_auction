@@ -20,30 +20,30 @@ async def auction(ctx, *args):
         embed.add_field(name="BOSS", value=args[0], inline=True)
         embed.add_field(name="所持者(소지자)", value=args[1], inline=True)
         if num == 3:
-            reaction_list = [':one:']
-            embed.add_field(name=":one:ITEM", value=args[1], inline=True)
+            reaction_list = ['1️⃣']
+            embed.add_field(name="1️⃣ITEM", value=args[1], inline=False)
         elif num == 4:
-            reaction_list = [':one:', ':two:']
-            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
+            reaction_list = ['1️⃣', '2️⃣']
+            embed.add_field(name="1️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="2️⃣ ITEM", value=args[1], inline=False)
         elif num == 5:
-            reaction_list = [':one:', ':two:', ':three:']
-            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":three: ITEM", value=args[1], inline=True)
+            reaction_list = ['1️⃣', '2️⃣', '3️⃣']
+            embed.add_field(name="1️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="2️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="3️⃣ ITEM", value=args[1], inline=False)
         elif num == 6:
-            reaction_list = [':one:', ':two:', ':three:', ':four:']
-            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":three: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":four: ITEM", value=args[1], inline=True)
+            reaction_list = ['1️⃣', '2️⃣', '3️⃣', '4️⃣']
+            embed.add_field(name="1️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="2️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="3️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name=":four: ITEM", value=args[1], inline=False)
         elif num == 7:
-            reaction_list = [':one:', ':two:', ':three:', ':four:', ':five:']
-            embed.add_field(name=":one: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":two: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":three: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":four: ITEM", value=args[1], inline=True)
-            embed.add_field(name=":five: ITEM", value=args[1], inline=True)
+            reaction_list = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
+            embed.add_field(name="1️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="2️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="3️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="4️⃣ ITEM", value=args[1], inline=False)
+            embed.add_field(name="5️⃣: ITEM", value=args[1], inline=False)
         else:
             return
         embed.set_footer(text="参加者は以下に絵文字をクリックしてください。\n참여를 원하시면 이모티콘으로 반응해주세요.")
