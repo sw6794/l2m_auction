@@ -22,22 +22,22 @@ async def auction(ctx, *args):
         if num == 3:
             reaction_list = [':one:']
             embed.add_field(name=":one:ITEM", value=args[1], inline=True)
-        elif numm == 4:
+        elif num == 4:
             reaction_list = [':one:', ':two:']
             embed.add_field(name=":one: ITEM", value=args[1], inline=True)
             embed.add_field(name=":two: ITEM", value=args[1], inline=True)
-        elif numm == 5:
+        elif num == 5:
             reaction_list = [':one:', ':two:', ':three:']
             embed.add_field(name=":one: ITEM", value=args[1], inline=True)
             embed.add_field(name=":two: ITEM", value=args[1], inline=True)
             embed.add_field(name=":three: ITEM", value=args[1], inline=True)
-        elif numm == 6:
+        elif num == 6:
             reaction_list = [':one:', ':two:', ':three:', ':four:']
             embed.add_field(name=":one: ITEM", value=args[1], inline=True)
             embed.add_field(name=":two: ITEM", value=args[1], inline=True)
             embed.add_field(name=":three: ITEM", value=args[1], inline=True)
             embed.add_field(name=":four: ITEM", value=args[1], inline=True)
-        elif numm == 7:
+        elif num == 7:
             reaction_list = [':one:', ':two:', ':three:', ':four:', ':five:']
             embed.add_field(name=":one: ITEM", value=args[1], inline=True)
             embed.add_field(name=":two: ITEM", value=args[1], inline=True)
