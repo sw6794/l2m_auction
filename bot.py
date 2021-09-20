@@ -63,6 +63,37 @@ async def end(ctx, link: str):
         embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
         await ctx.send(embed=embed)
 
+async def test(ctx, link: str):
+    link = link.split('/')
+    server_id = int(link[4])
+    channel_id = int(link[5])
+    msg_id = int(link[6])
 
+    server = bot.get_guild(server_id)
+    channel = server.get_channel(channel_id)
+    msg = await channel.fetch_message(msg_id)
+    users = set()
+    userids = set()
+    for reaction in msg.reactions:
+        async for user in reaction.users():
+            if bot.user.id != user.id:
+                users.add(user)
+                userids.add(user.display_name)
+    if len(users) != 0:
+        entry=len(users)
+
+        userlist = list(userids)
+        winner = random.choice(userlist)
+
+        embed=msg.embeds[0]
+        embed.set_footer(text="")
+        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"<@!{winner}>", inline=False)
+        await ctx.send(embed=msg.embeds[0])
+
+
+    else:
+        embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
+        await ctx.send(embed=embed)
 
 bot.run(os.environ['token'])
