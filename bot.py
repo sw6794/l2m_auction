@@ -95,7 +95,7 @@ async def endt(ctx, link: str):
         embed=msg.embeds[0]
         embed.set_footer(text="")
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"{winner.mention}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"{winner.displayName}", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
         embed2=discord.Embed(title="FINISHED")
