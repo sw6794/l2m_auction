@@ -4,7 +4,11 @@ from discord import NotFound
 import os
 import random
 
-bot = commands.Bot(command_prefix = '!')
+discord_intents = discord.Intents.all()
+bot = commands.Bot(
+    command_prefix="!",
+    intents=discord_intents
+)
 
 @bot.event
 async def on_ready():
