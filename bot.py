@@ -42,7 +42,7 @@ async def end(ctx, link: str):
         async for user in reaction.users():
             if bot.user.id != user.id:
                 users.add(user)
-                userids.add(user.id)
+                userids.add(user.display_name)
     if len(users) != 0:
         entry=len(users)
 
@@ -51,8 +51,8 @@ async def end(ctx, link: str):
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
-        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"<@!{winner}>", inline=False)
+        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.display_name for user in users)}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"{winner}", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
         embed2=discord.Embed(title="FINISHED")
@@ -62,7 +62,7 @@ async def end(ctx, link: str):
     else:
         embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
         await ctx.send(embed=embed)
-        
+
 @bot.command()
 async def endt(ctx, link: str):
     link = link.split('/')
