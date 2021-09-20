@@ -83,10 +83,10 @@ async def endt(ctx, link: str):
     for reaction in msg.reactions:
         async for user in reaction.users():
             if bot.user.id != user.id:
-                users = ctx.guild.get_member(int(user.id))
-                usernames.add(users.display_name)
+                member = ctx.guild.get_member(int(user.id))
+                usernames.add(member.display_name)
                 userids.add(user.id)
-    if len(users) != 0:
+    if len(usernames) != 0:
         entry=len(users)
 
         userlist = list(userids)
