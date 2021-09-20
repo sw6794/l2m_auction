@@ -79,7 +79,8 @@ async def endt(ctx, link: str):
     for reaction in msg.reactions:
         async for user in reaction.users():
             if bot.user.id != user.id:
-                member = ctx.guild.get_member(user.id)
+                member = server.get_member(user.id)
+                print(member)
                 users.add(user)
                 members.add(member)
                 userids.add(user.id)
