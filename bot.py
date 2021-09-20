@@ -42,7 +42,7 @@ async def end(ctx, link: str):
         async for user in reaction.users():
             if bot.user.id != user.id:
                 users.add(user)
-                userids.add(user.display_name)
+                userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
 
@@ -51,8 +51,8 @@ async def end(ctx, link: str):
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
-        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.display_name for user in users)}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"{winner}", inline=False)
+        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"<@!{winner}>", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
         embed2=discord.Embed(title="FINISHED")
@@ -75,27 +75,27 @@ async def endt(ctx, link: str):
     msg = await channel.fetch_message(msg_id)
     users = set()
     userids = set()
-    members = set()
     for reaction in msg.reactions:
         async for user in reaction.users():
             if bot.user.id != user.id:
-                member = server.get_member(int(user.id))
-                print(member)
                 users.add(user)
-                members.add(member)
                 userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
 
         userlist = list(userids)
         winner = random.choice(userlist)
-        winner = server.get_member(winner)
+        member = await ctx.guild.fetch_member(int(winner))
+        print(member)
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
-        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{members}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"{winner.mention}", inline=False)
+        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"<@!{winner}>", inline=False)
         await ctx.send(embed=msg.embeds[0])
+
+        embed2=discord.Embed(title="FINISHED")
+        await msg.edit(embed=embed2)
 
 
     else:
