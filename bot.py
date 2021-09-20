@@ -42,21 +42,25 @@ async def end(ctx, link: str):
     msg = await channel.fetch_message(msg_id)
     users = set()
     userids = set()
+    usernames = set()
     for reaction in msg.reactions:
         async for user in reaction.users():
             if bot.user.id != user.id:
-                users.add(user)
+                member = ctx.guild.get_member(int(user.id))
+                usernames.add(member.display_name)
                 userids.add(user.id)
-    if len(users) != 0:
-        entry=len(users)
+    if len(usernames) != 0:
+        entry=len(usernames)
 
         userlist = list(userids)
         winner = random.choice(userlist)
+        winner = ctx.guild.get_member(int(winner))
+        print(winner)
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
-        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"<@!{winner}>", inline=False)
+        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(usernames)}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"{winner.mention} {winner.display_name}", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
         embed2=discord.Embed(title="FINISHED")
