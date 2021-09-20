@@ -92,7 +92,7 @@ async def endt(ctx, link: str):
         embed=msg.embeds[0]
         embed.set_footer(text="")
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{members}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"@{winner}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"<@{winner}>", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
 
