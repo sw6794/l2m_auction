@@ -89,7 +89,7 @@ async def endt(ctx, link: str):
 
         userlist = list(userids)
         winner = random.choice(userlist)
-        member = bot.get_member(int(winner))
+        member = ctx.guild.get_member(int(winner))
         print(member)
 
         embed=msg.embeds[0]
