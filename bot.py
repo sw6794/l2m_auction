@@ -87,7 +87,7 @@ async def endt(ctx, link: str):
                 usernames.add(member.display_name)
                 userids.add(user.id)
     if len(usernames) != 0:
-        entry=len(users)
+        entry=len(usernames)
 
         userlist = list(userids)
         winner = random.choice(userlist)
