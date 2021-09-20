@@ -81,7 +81,7 @@ async def endt(ctx, link: str):
             if bot.user.id != user.id:
                 member = ctx.guild.get_member(user.id)
                 users.add(user)
-                members.add(member.display_name)
+                members.add(member)
                 userids.add(user.display_name)
     if len(users) != 0:
         entry=len(users)
