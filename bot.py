@@ -79,10 +79,12 @@ async def endt(ctx, link: str):
     msg = await channel.fetch_message(msg_id)
     users = set()
     userids = set()
+    usernames = set()
     for reaction in msg.reactions:
         async for user in reaction.users():
             if bot.user.id != user.id:
-                users.add(ctx.guild.get_member(int(user.id)))
+                member = ctx.guild.get_member(int(user.id))
+                usernames.add(member.display_name)
                 userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
@@ -94,7 +96,7 @@ async def endt(ctx, link: str):
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
-        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(f'{dispaly_name}' for dispaly_name in users)}", inline=False)
+        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(usernames)}", inline=False)
         embed.add_field(name="当選者(당선자)", value=f"{winner.display_name}", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
