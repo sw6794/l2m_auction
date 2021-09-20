@@ -82,13 +82,13 @@ async def endt(ctx, link: str):
                 member = ctx.guild.get_member(user.id)
                 users.add(user)
                 members.add(member)
-                userids.add(user.display_name)
+                userids.add(user.id)
     if len(users) != 0:
         entry=len(users)
 
         userlist = list(userids)
         winner = random.choice(userlist)
-        winner = ctx.guild.get_member(winner)
+        winner = server.get_member(winner)
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
