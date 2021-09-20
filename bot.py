@@ -75,6 +75,7 @@ async def endt(ctx, link: str):
     msg = await channel.fetch_message(msg_id)
     users = set()
     userids = set()
+    members = set()
     for reaction in msg.reactions:
         async for user in reaction.users():
             if bot.user.id != user.id:
