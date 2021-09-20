@@ -63,7 +63,7 @@ async def end(ctx, link: str):
         embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
         await ctx.send(embed=embed)
 
-async def test(ctx, link: str):
+async def endt(ctx, link: str):
     link = link.split('/')
     server_id = int(link[4])
     channel_id = int(link[5])
@@ -88,7 +88,7 @@ async def test(ctx, link: str):
         embed=msg.embeds[0]
         embed.set_footer(text="")
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"<@!{winner}>", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"{winner}", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
 
