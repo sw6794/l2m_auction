@@ -62,7 +62,8 @@ async def end(ctx, link: str):
     else:
         embed=discord.Embed(title="ERROR", description="参加者がいません。\n참여자가 없습니다.")
         await ctx.send(embed=embed)
-
+        
+@bot.command()
 async def endt(ctx, link: str):
     link = link.split('/')
     server_id = int(link[4])
