@@ -42,7 +42,7 @@ async def end(ctx, link: str):
         async for user in reaction.users():
             if bot.user.id != user.id:
                 users.add(user)
-                userids.add(user.display_name)
+                userids.add(user.nick)
     if len(users) != 0:
         entry=len(users)
 
@@ -51,7 +51,7 @@ async def end(ctx, link: str):
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
-        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.display_name for user in users)}", inline=False)
+        embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.nick for user in users)}", inline=False)
         embed.add_field(name="当選者(당선자)", value=f"{winner}", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
