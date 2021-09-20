@@ -89,13 +89,13 @@ async def endt(ctx, link: str):
 
         userlist = list(userids)
         winner = random.choice(userlist)
-        member = ctx.guild.get_member(int(winner))
-        print(member)
+        winner = ctx.guild.get_member(int(winner))
+        print(winner)
 
         embed=msg.embeds[0]
         embed.set_footer(text="")
         embed.add_field(name=f"参加者(참여자) ({entry})", value=f"{', '.join(user.name for user in users)}", inline=False)
-        embed.add_field(name="当選者(당선자)", value=f"{member.dispay_name}", inline=False)
+        embed.add_field(name="当選者(당선자)", value=f"{winner.mention}", inline=False)
         await ctx.send(embed=msg.embeds[0])
 
         embed2=discord.Embed(title="FINISHED")
